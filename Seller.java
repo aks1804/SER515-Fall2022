@@ -5,10 +5,10 @@ public class Seller extends Person {
 		productMenu.showMenu();
 	}
 
-	public void createProductMenu(int menuType) {
+	public ProductMenu createProductMenu(int menuType) {
 		if(menuType==0)
-			productMenu = new MeatProductMenu();
+			return new MeatProductMenu();
 		else
-			productMenu = new ProduceProductMenu();
+			return new ProduceProductMenu();
 	}
 }

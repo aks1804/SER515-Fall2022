@@ -24,6 +24,6 @@ public abstract class Person {
 		this.productMenu.showComboxes();
 	}
 
-	public abstract void createProductMenu(int menuType);
+	public abstract ProductMenu createProductMenu(int menuType);
 
 }
