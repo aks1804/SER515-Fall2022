@@ -1,27 +1,29 @@
-public class Person {
+public abstract class Person {
 
-	private ProductMenu theProductMenu;
-
-	private ProductMenu productMenu;
+	ProductMenu productMenu;
 
 	public abstract void showMenu();
 
 	public void showAddButton() {
-
+		this.productMenu.showAddButton();
 	}
 
 	public void showViewButton() {
-
+		this.productMenu.showViewButton();
 	}
 
 	public void showRadioButton() {
-
+		this.productMenu.showRadioButton();
 	}
 
 	public void showLabels() {
-
+		this.productMenu.showLabels();
 	}
 
-	public abstract ProductMenu createProductMenu();
+	public void showCombos(){
+		this.productMenu.showComboxes();
+	}
+
+	public abstract void createProductMenu(int menuType);
 
 }

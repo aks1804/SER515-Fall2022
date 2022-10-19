@@ -1,13 +1,9 @@
 public class Facade {
 
 	private int UserType;
-
 	private Product theSelectedProduct;
-
-	private int nProductCatergory;
-
+	private int nProductCategory;
 	private ClassProductList theProductList;
-
 	private Person thePerson;
 
 	public boolean login() {
@@ -34,7 +30,7 @@ public class Facade {
 
 	}
 
-	public void remind()() {
+	public void remind() {
 
 	}
 
