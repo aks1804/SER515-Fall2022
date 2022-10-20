@@ -18,12 +18,14 @@ public class Main {
                         System.out.println("Login Failed");
                         continue;
                     }
-                object.createUser();
-                object.attachProductToUser();
-                object.productOperation();
-                break;
+                    object.createUser();
+                    object.attachProductToUser();
+                    object.productOperation();
+                    break;
 
                 case 2:
+                    Reminder r = new Reminder(object);
+                    r.remind();
                     break;
             }
         }while(option!=3);

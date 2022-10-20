@@ -4,16 +4,16 @@ import java.io.*;
 public class Facade{
 
 	int UserType;
-	private Product theSelectedProduct;
+	Product theSelectedProduct;
 	private int nProductCategory;
-	private ClassProductList theProductList;
+	ClassProductList theProductList;
 	private Person thePerson;
 	private ArrayList<String> BuyerName = new ArrayList<>();
 	private ArrayList<String> BuyerPass = new ArrayList<>();
 	private ArrayList<String> SellerName = new ArrayList<>();
 	private ArrayList<String> SellerPass = new ArrayList<>();
 	private String name;
-	private Trading trades = new Trading();
+	Trading trades = new Trading();
 	private OfferingList bidProducts = new OfferingList();
 
 	public boolean login() {
@@ -87,8 +87,12 @@ public class Facade{
 
 	public void viewTrading() {
 		System.out.println("\nOffers Currently for Trade: ");
-		for(Offering i: trades.offeringList) // Iterator here
+		OfferingIterator iter = new OfferingIterator(trades.offeringList);
+		while (iter.hasNext()) { // Iterator here
+			Offering i = iter.next();
 			System.out.println("Product Name: " + i.name + "\t\tSeller: " + i.seller_name + "\t\tBid: " + i.bid + "\t\tBid by: " + i.bid_name);
+
+		}
 	}
 
 	public void decideBidding() {
@@ -114,8 +118,12 @@ public class Facade{
 	}
 
 	public void submitBidding() {
-		for (Offering i : this.bidProducts) { // Iterator here
-			for (Offering j : trades.offeringList){ // Iterator here
+		OfferingIterator iter=new OfferingIterator(this.bidProducts);
+		OfferingIterator iter1=new OfferingIterator(trades.offeringList);
+		while(iter.hasNext()) { // Iterator here
+			Offering i=iter.next();
+			while(iter1.hasNext()){ // Iterator here
+				Offering j=iter1.next();
 				if(i.name.equalsIgnoreCase(j.name) && i.seller_name.equalsIgnoreCase(j.seller_name)){
 					if(i.bid <= j.bid) {
 						System.out.println("Make Higher Bid for " + j.name + " Seller: " + j.seller_name);
@@ -170,9 +178,11 @@ public class Facade{
 				String data = myReader.nextLine();
 				String data1[]= data.split(":");
 				if(data1[0].equalsIgnoreCase(this.name)){
-					for(Product i: this.theProductList){ // Iterator here
-						if(i.name.equalsIgnoreCase(data1[1])) {
-							this.thePerson.productList.add(i);
+					ProductIterator iter = new ProductIterator(this.theProductList);
+					while(iter.hasNext()){//Iterator used here
+						Product temp= iter.next();
+						if(temp.name.equalsIgnoreCase(data1[1])) {
+							this.thePerson.productList.add(temp);
 							break;
 						}
 					}
@@ -191,9 +201,10 @@ public class Facade{
 			System.out.println("\n\nProducts Not Traded Currently:");
 		else
 			System.out.println("\n\nProduct Requested by User: ");
-
-		for(Product i: this.thePerson.productList) { // Iterator here
-			System.out.println(i.name);
+		ProductIterator iter=new ProductIterator(this.thePerson.productList);
+		while(iter.hasNext()) {//Iterator Used Here
+			Product temp=iter.next();
+			System.out.println(temp.name);
 		}
 
 		if(this.UserType==1)
@@ -202,7 +213,9 @@ public class Facade{
 			System.out.println("\nEnter Product to Bid on (Or Enter 'e' to Exit):");
 		Scanner scan = new Scanner(System.in);
 		String product_chosen = scan.next();
-		for(Product i: this.thePerson.productList) { // Iterator here
+		ProductIterator iter1=new ProductIterator(this.thePerson.productList);
+		while(iter1.hasNext()) { // Iterator here
+			Product i=iter1.next();
 			if(product_chosen.equalsIgnoreCase(i.name)) {
 				return i;
 			}
