@@ -4,9 +4,9 @@ public class Product {
 
 	private ClassProductList classProductList;
 
-	public Reminder accept(NodeVisitor visitor) {
+	public void accept(NodeVisitor visitor) {
 		System.out.println("Product Reminder ...");
-		return visitor.visitProduct(this);
+		visitor.visitProduct(this);
 	}
 
 }

@@ -1,11 +1,10 @@
 public abstract class NodeVisitor {
 
-	public abstract Reminder visitProduct(Product product);
+	public abstract void visitProduct(Product product);
 
-	public abstract Reminder visitTrading(Trading trading);
+	public abstract void visitTrading(Trading trading);
 
-	public abstract Reminder visitFacade(Facade facade);
-
-	public abstract Reminder visitClassProductList(ClassProductList classProductList);
+	public abstract void visitFacade(Facade facade);
+	public abstract void visitProductList(ClassProductList productList);
 
 }

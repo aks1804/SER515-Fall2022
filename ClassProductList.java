@@ -8,7 +8,7 @@ public class ClassProductList extends ArrayList {
 	private ProductIterator productIterator;
 	public void accept(NodeVisitor visitor) {
 		System.out.println("Class Product List Reminder ...");
-		//return visitor.visitClassProductList(this);
+		visitor.visitProductList(this);
 	}
 
 }
