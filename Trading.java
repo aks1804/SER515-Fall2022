@@ -4,8 +4,9 @@ public class Trading {
 
 	private Product product;
 
-	public void accept(NodeVisitor visitor) {
-
+	public Reminder accept(NodeVisitor visitor) {
+		System.out.println("Trading Reminder ...");
+		return visitor.visitTrading(this);
 	}
 
 }
