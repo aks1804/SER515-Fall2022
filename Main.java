@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Facade Pattern called
-        Facade object = new Facade();
+        Facade object = new Facade(); // Facade Design Pattern Used Here
         object.createProductList();
         int option;
         do {

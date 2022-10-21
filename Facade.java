@@ -86,7 +86,7 @@ public class Facade{
 
 	public void viewTrading() {
 		System.out.println("\nOffers Currently for Trade: ");
-		OfferingIterator iter = new OfferingIterator(trades.offeringList);
+		OfferingIterator iter = new OfferingIterator(trades.offeringList); // Iterator Design Pattern Used Here
 		System.out.println("\n<<ITERATOR DESIGN PATTERN USED HERE TO ITERATE ELEMENTS>>");
 		while (iter.hasNext()) {
 			Offering i = iter.next();
@@ -118,16 +118,8 @@ public class Facade{
 	}
 
 	public void submitBidding() {
-		OfferingIterator iter=new OfferingIterator(bidProducts);
+		OfferingIterator iter=new OfferingIterator(bidProducts); // Iterator Design Pattern Used Here
 		OfferingIterator iter1=new OfferingIterator(trades.offeringList);
-		for(Offering i : bidProducts){
-			System.out.println(i.name + " " + i.seller_name + " " + i.bid);
-		}
-
-		for(Offering i : trades.offeringList){
-			System.out.println(i.name + " " + i.seller_name + " " + i.bid);
-		}
-
 		System.out.println("\n<<ITERATOR DESIGN PATTERN USED HERE TO ITERATE ELEMENTS>>");
 		while(iter.hasNext()) {
 			Offering i=iter.next();
@@ -185,7 +177,7 @@ public class Facade{
 				String data = myReader.nextLine();
 				String[] data1 = data.split(":");
 				if(data1[0].equalsIgnoreCase(this.name)){
-					ProductIterator iter = new ProductIterator(this.theProductList);
+					ProductIterator iter = new ProductIterator(this.theProductList); // Iterator Design Pattern Used Here
 					System.out.println("\n<<ITERATOR DESIGN PATTERN USED HERE TO ADD ELEMENTS TO USER>>");
 					while(iter.hasNext()){
 						Product temp= iter.next();
@@ -209,7 +201,7 @@ public class Facade{
 			System.out.println("\n\nProducts Not Traded Currently:");
 		else
 			System.out.println("\n\nProduct Requested by User: ");
-		ProductIterator iter=new ProductIterator(this.thePerson.productList);
+		ProductIterator iter=new ProductIterator(this.thePerson.productList); // Iterator Design Pattern Used Here
 		System.out.println("\n<<ITERATOR DESIGN PATTERN USED HERE TO ITERATE ELEMENTS>>");
 		while(iter.hasNext()) {
 			Product temp=iter.next();
@@ -222,7 +214,7 @@ public class Facade{
 			System.out.println("\nEnter Product to Bid on (Or Enter 'e' to Exit):");
 		Scanner scan = new Scanner(System.in);
 		String product_chosen = scan.next();
-		ProductIterator iter1=new ProductIterator(this.thePerson.productList);
+		ProductIterator iter1=new ProductIterator(this.thePerson.productList); // Iterator Design Pattern Used Here
 		System.out.println("\n<<ITERATOR DESIGN PATTERN USED HERE TO ITERATE ELEMENTS>>");
 		while(iter1.hasNext()) {
 			Product i=iter1.next();
@@ -251,7 +243,7 @@ public class Facade{
 							continue;
 						}
 						System.out.println(a.name);
-						if (a.category.equalsIgnoreCase("Meat"))
+						if (a.category.equalsIgnoreCase("Meat")) //// Bridge and Factory Design Pattern Used Here
 							this.thePerson.productMenu = this.thePerson.createProductMenu(0);
 						else
 							this.thePerson.productMenu = this.thePerson.createProductMenu(1);
@@ -298,6 +290,7 @@ public class Facade{
 		}
 	}
 
+	@SuppressWarnings("all")
 	public void accept(NodeVisitor visitor) {
 		System.out.println("Facade Reminder ...");
 		visitor.visitFacade(this);

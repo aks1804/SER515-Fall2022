@@ -1,6 +1,5 @@
 public class Product {
 
-	Trading trading;
 
 	String name;
 	String category;
@@ -10,6 +9,7 @@ public class Product {
 		this.category = category;
 	}
 
+	@SuppressWarnings("all")
 	public void accept(NodeVisitor visitor) {
 		System.out.println("Product Reminder ...");
 		visitor.visitProduct();
