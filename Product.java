@@ -9,9 +9,8 @@ public class Product {
 		this.category = category;
 	}
 
-	@SuppressWarnings("all")
 	public void accept(NodeVisitor visitor) {
-		System.out.println("Product Reminder ...");
+		System.out.println("Product Visit");
 		visitor.visitProduct();
 	}
 

@@ -290,9 +290,9 @@ public class Facade{
 		}
 	}
 
-	@SuppressWarnings("all")
+
 	public void accept(NodeVisitor visitor) {
-		System.out.println("Facade Reminder ...");
+		System.out.println("Facade Visit");
 		visitor.visitFacade(this);
 	}
 }
