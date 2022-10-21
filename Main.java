@@ -12,7 +12,7 @@ public class Main {
             Scanner inp = new Scanner(System.in);
             option = inp.nextInt();
             switch (option) {
-                case 1:
+                case 1 -> {
                     boolean verify = object.login();
                     if (!verify) {
                         System.out.println("Login Failed");
@@ -22,12 +22,11 @@ public class Main {
                     object.createUser();
                     object.attachProductToUser();
                     object.productOperation();
-                    break;
-
-                case 2:
+                }
+                case 2 -> {
                     Reminder r = new Reminder(object);
                     r.remind();
-                    break;
+                }
             }
         }while(option!=3);
     }

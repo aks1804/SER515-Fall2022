@@ -1,6 +1,6 @@
 public class ProductIterator implements ListIterator {
 
-	private ClassProductList productList;
+	ClassProductList productList;
 	int pos=0;
 
 	public ProductIterator(ClassProductList theProductList) {
@@ -9,10 +9,7 @@ public class ProductIterator implements ListIterator {
 
 
 	public boolean hasNext() {
-		if (pos >= productList.size() || productList.get(pos) == null)
-			return false;
-		else
-			return true;
+		return pos < productList.size() && productList.get(pos) != null;
 	}
 
 	public Product next() {
@@ -23,9 +20,6 @@ public class ProductIterator implements ListIterator {
 
 	public void moveToHead() {
 		pos=0;
-	}
-	public void remove() {
-		productList.remove(pos);
 	}
 
 }

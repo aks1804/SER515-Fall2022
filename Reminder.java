@@ -1,6 +1,6 @@
 public class Reminder {
 
-    Facade fo = new Facade();
+    Facade fo;
 
     public Reminder(Facade object) {
         this.fo = object;

@@ -1,6 +1,6 @@
 public class OfferingIterator implements ListIterator{
 
-	private OfferingList offeringList;
+	OfferingList offeringList;
 	int pos=0;
 
 	public OfferingIterator(OfferingList offeringList) {
@@ -8,10 +8,7 @@ public class OfferingIterator implements ListIterator{
 	}
 
 	public boolean hasNext() {
-		if (pos >= offeringList.size() || offeringList.get(pos) == null)
-			return false;
-		else
-			return true;
+		return pos < offeringList.size() && offeringList.get(pos) != null;
 	}
 
 	public Offering next() {
@@ -23,7 +20,5 @@ public class OfferingIterator implements ListIterator{
 	public void moveToHead() {
 		pos = 0;
 	}
-	public void remove() {
-		offeringList.remove(pos);
-	}
+
 }

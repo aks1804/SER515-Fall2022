@@ -1,8 +1,5 @@
 public class ReminderVisitor extends NodeVisitor {
 
-	private Reminder m_Reminder;
-
-	private ClassProductList classProductList;
 	Trading trades;
 
 	ReminderVisitor(Trading trades){

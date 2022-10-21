@@ -5,13 +5,12 @@ public class Facade{
 
 	int UserType;
 	Product theSelectedProduct;
-	private int nProductCategory;
 	ClassProductList theProductList;
 	private Person thePerson;
-	private ArrayList<String> BuyerName = new ArrayList<>();
-	private ArrayList<String> BuyerPass = new ArrayList<>();
-	private ArrayList<String> SellerName = new ArrayList<>();
-	private ArrayList<String> SellerPass = new ArrayList<>();
+	ArrayList<String> BuyerName = new ArrayList<>();
+	ArrayList<String> BuyerPass = new ArrayList<>();
+	ArrayList<String> SellerName = new ArrayList<>();
+	ArrayList<String> SellerPass = new ArrayList<>();
 	private String name;
 	Trading trades = new Trading();
 	private OfferingList bidProducts = new OfferingList();
@@ -23,7 +22,7 @@ public class Facade{
 			Scanner myReader = new Scanner(myObj);
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
-				String data1[] = data.split(":");
+				String[] data1 = data.split(":");
 				BuyerName.add(data1[0]);
 				BuyerPass.add(data1[1]);
 			}
@@ -32,7 +31,7 @@ public class Facade{
 			myReader = new Scanner(myObj);
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
-				String data1[]= data.split(":");
+				String[] data1= data.split(":");
 				SellerName.add(data1[0]);
 				SellerPass.add(data1[1]);
 				//System.out.println(SellerPass);
@@ -51,21 +50,21 @@ public class Facade{
 		String password = scan.next();
 
 		for(int i=0; i< BuyerName.size();i++){
-			if(BuyerName.get(i).equalsIgnoreCase(username)==true){
+			if(BuyerName.get(i).equalsIgnoreCase(username)){
 				temp=i;
 			}
 		}
-		if(temp!=-1 && password.equalsIgnoreCase(BuyerPass.get(temp))==true){
+		if(temp!=-1 && password.equalsIgnoreCase(BuyerPass.get(temp))){
 			UserType=0;
 			this.name = username;
 			return true;
 		}
 		for(int i=0; i< SellerName.size();i++){
-			if(SellerName.get(i).equalsIgnoreCase(username)==true){
+			if(SellerName.get(i).equalsIgnoreCase(username)){
 				temp=i;
 			}
 		}
-		if(temp!=-1 && password.equalsIgnoreCase(SellerPass.get(temp))==true){
+		if(temp!=-1 && password.equalsIgnoreCase(SellerPass.get(temp))){
 			UserType=1;
 			this.name = username;
 			return true;
@@ -150,9 +149,6 @@ public class Facade{
 		this.bidProducts = new OfferingList();
 	}
 
-	public void remind() {
-
-	}
 
 	public void createUser() {
 		if(this.UserType==0)
@@ -169,7 +165,7 @@ public class Facade{
 			Scanner myReader = new Scanner(myObj);
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
-				String data1[] = data.split(":");
+				String[] data1 = data.split(":");
 				Product p = new Product(data1[1], data1[0]);
 				this.theProductList.add(p);
 			}
@@ -187,7 +183,7 @@ public class Facade{
 			Scanner myReader = new Scanner(myObj);
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
-				String data1[]= data.split(":");
+				String[] data1 = data.split(":");
 				if(data1[0].equalsIgnoreCase(this.name)){
 					ProductIterator iter = new ProductIterator(this.theProductList);
 					System.out.println("\n<<ITERATOR DESIGN PATTERN USED HERE TO ADD ELEMENTS TO USER>>");
@@ -240,7 +236,7 @@ public class Facade{
 	}
 
 	public void productOperation() {
-		Product a = null;
+		Product a;
 		int option;
 		if(this.UserType==1) {
 			do {
